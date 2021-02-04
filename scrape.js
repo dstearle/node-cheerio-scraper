@@ -21,7 +21,19 @@ request('https://americangrilledcheesecompany.com/', (error, response, html) => 
         // Grabs the heading from the menu section on the page
         // const output = menuSection.find('h3').text();
 
-        console.log(output);
+        // console.log(output);
+
+        // Loops through each item in the navbar
+        $('.nav-item a').each((i, el) => {
+
+            // The text of the nav-item
+            const item = $(el).text();
+            // The link of the navitem
+            const link = $(el).attr('href');
+
+            console.log(link);
+
+        });
 
     }
 
