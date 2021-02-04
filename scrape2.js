@@ -1,6 +1,11 @@
 // Imports
 const request = require('request');
 const cheerio = require('cheerio');
+const fs = require('fs');
+const writeStream = fs.createWriteStream('post.csv');
+
+// Write Headers
+writeStream.write(`Title \n`);
 
 // The page to be scraped
 request('https://americangrilledcheesecompany.com/locations/', (error, response, html) => {
@@ -26,9 +31,15 @@ request('https://americangrilledcheesecompany.com/locations/', (error, response,
             //     .attr('href');
 
             // Prints out the scraped information to the terminal
-            console.log(title);
+            // console.log(title);
+
+            // Write row to csv file
+            writeStream.write(`${ title } \n`);
 
         });
+
+        // Inform terminal that scraping is done
+        console.log('Scraping Done...');
 
     }
 
