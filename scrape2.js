@@ -14,11 +14,18 @@ request('https://americangrilledcheesecompany.com/locations/', (error, response,
         // For each loop that goes through all of the location titles
         $('.locations-list').each((i, el) => {
 
+            // The title of the location
             const title = $(el)
-            .find('h3')
-            .text()
-            .replace(/\s\s+/g, '');
+                .find('h3')
+                .text()
+                .replace(/\s\s+/g, '');
 
+            // The title of the location
+            // const link = $(el)
+            //     .find('a')
+            //     .attr('href');
+
+            // Prints out the scraped information to the terminal
             console.log(title);
 
         });
